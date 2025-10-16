@@ -2,7 +2,7 @@
 
 GuiMA é um trabalho de conclusão de conclusão de curso (TCC) para o MBA de Jornalismo de Dados do IDP, realizado em 2025, que busca reunir e apresentar as informações de acessibilidade dos museus existentes no Brasil.
 
-Foi desenvolvido por [Ícaro Ferracini](https://www.linkedin.com/in/icaroferracini/), com orientação da professora [Deborah Foroni](https://www.linkedin.com/in/deborah-foroni/), e pode ser [acessado por esse link](https://icaroferracini.github.io//MBA%20JDD%20-%20Trabalho%20de%20Conclus%C3%A3o%20de%20Curso%20-%202025/05%20-%20Codigo%20HTML/index.html).
+Foi desenvolvido por [Ícaro Ferracini](https://www.linkedin.com/in/icaroferracini/), com orientação da professora [Deborah Foroni](https://www.linkedin.com/in/deborah-foroni/), e pode ser [acessado nesse link](https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/05%20-%20Projeto%20em%20HTML/index.html).
 
 ## Descrição resumida do tema de investigação
 
