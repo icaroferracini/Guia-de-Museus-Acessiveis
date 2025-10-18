@@ -2,7 +2,7 @@
 
 GuiMA é um trabalho de conclusão de conclusão de curso (TCC) para o MBA de Jornalismo de Dados do IDP, realizado em 2025, que busca reunir e apresentar as informações de acessibilidade dos museus existentes no Brasil.
 
-Foi desenvolvido por [Ícaro Ferracini](https://www.linkedin.com/in/icaroferracini/), com orientação da professora [Deborah Foroni](https://www.linkedin.com/in/deborah-foroni/), e pode ser [acessado nesse link](https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/05%20-%20Projeto%20em%20HTML/index.html).
+Foi desenvolvido por [Ícaro Ferracini](https://www.linkedin.com/in/icaroferracini/), com orientação da professora [Deborah Foroni](https://www.linkedin.com/in/deborah-foroni/), e pode ser [acessado nesse link](https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/03%20-%20Visualizacao/index.html).
 
 ## Descrição resumida do tema de investigação
 
@@ -32,7 +32,7 @@ Todos os dados exibidos nesse projeto são do site [MuseusBR](http://museus.cult
 
 As informações foram obtidas de duas formas: pela **base disponibilizada oficialmente no site** e por meio de **raspagem de dados**, coletando informações na própria plataforma do [MuseusBR](http://museus.cultura.gov.br/).
 
-É importante ressaltar que os dados são autodeclarados pelos museus na plataforma e que não foi possível realizar verificação sobre os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi realizada em setembro de 2025, e as informações podem ter sido atualizadas pelos museus posteriormente.
+É importante ressaltar que os dados são autodeclarados pelos museus na plataforma e que não foi possível realizar verificação sobre os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi realizada em outubro de 2025, e as informações podem ter sido atualizadas pelos museus posteriormente.
 
 ### Bibliotecas Python utilizadas
 
@@ -52,7 +52,7 @@ O própio site [MuseusBR](http://museus.cultura.gov.br/) disponibiliza em seu pa
 
 Essa planilha foi utilizada como base das informações para a raspagem de dados, com objetivo de complementar as informações fornecidas pela planilha.
 
-A raspagem de dados foi realizada utilizando a linguagem Python no mês de Setembro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.024 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
+A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.024 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
 
 1. Gestão
 2. Contrato de Gestão
