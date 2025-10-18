@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia - GUIA DE MUSEUS ACESSÍVEIS DO BRASIL - GuiMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #1351b4;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #ffffff;
+            --text-secondary: #111;
+            --link: #1351b4;
+            --button-bg: #1351b4;
+            --button-text: #ffffff;
+            --content-bg: #ffffff;
+            --focus-outline: #ffcd07;
+        }
+
+        body.dark-mode {
+            --bg-primary: #071d41;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #f8f9fa;
+            --text-secondary: #e0e0e0;
+            --link: #6bb3ff;
+            --button-bg: #2968d8;
+            --button-text: #ffffff;
+            --content-bg: #0f0f0f;
+            --focus-outline: #ffcd07;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--content-bg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .skip-link {
+            color: var(--text-primary);
+            z-index: -10000;
+            border: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .skip-link:focus {
+            z-index: 10000;
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .top-header {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 0.75rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.03125rem;
+        }
+
+        .accessibility-controls {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .accessibility-controls button,
+        .accessibility-controls a {
+            background: transparent;
+            color: var(--text-primary);
+            border: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            font-weight: 500;
+        }
+
+        .accessibility-controls button:hover,
+        .accessibility-controls a:hover {
+            opacity: 0.85;
+        }
+
+        .accessibility-controls button:focus,
+        .accessibility-controls a:focus {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+            border-radius: 4px;
+            opacity: 1;
+        }
+
+        .main-header {
+            background-color: var(--content-bg);
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--link);
+            text-decoration: none;
+            letter-spacing: -0.0625rem;
+        }
+
+        .logo:hover {
+            opacity: 0.85;
+        }
+
+        .logo:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 0.25rem;
+            border-radius: 0.5rem;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        a {
+            color: var(--link);
+        }
+
+        a:focus {
+
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: var(--link);
+            border: 2px solid var(--button-bg);
+            padding: 0.75rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6.25rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        body.dark-mode .nav-button {
+            color: var(--text-primary);
+            border-color: var(--button-bg);
+        }
+
+        .nav-button:hover {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            box-shadow: 0 0.25rem 0.5rem rgba(19, 81, 180, 0.2);
+        }
+
+        .nav-button:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .nav-button.active {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        .content-area {
+            background-color: var(--bg-secondary);
+            min-height: 31.25rem;
+            padding: 2.5rem;
+        }
+
+        .back-to-top {
+            position: absolute;
+            left: -9999px;
+            color: var(--button-text);
+            background: var(--button-bg);
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            z-index: 10000;
+        }
+
+        .back-to-top:focus {
+            position: fixed;
+            bottom: 2.5rem;
+            left: 2rem;
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+            color: var(--button-text);
+            background: var(--button-bg);
+        }
+
+        .footer {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 1rem 2.5rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.03125rem;
+            line-height: 1.6;
+            max-width: 56.25rem;
+            margin: 0 auto;
+        }
+
+
+        .article-section {
+            margin: 0 auto 3rem;
+            background: var(--content-bg);
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+
+            text-align: Left;
+            color: var(--link);
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        .article-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .article-section h3 {
+            font-size: 1.55rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-section h4 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-section h5 {
+            font-size: 1.15rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 400;
+        }
+
+        .article-section p {
+            margin-bottom: 1rem;
+        }
+
+        .p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: 1.25rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .quote {
+            background-color: var(--bg-secondary);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0.5rem;
+            border-left: 0.25rem solid;
+            border-color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+        }
+
+        ol li,
+        ul li {
+            color: var(--text-secondary);
+            margin: 0.5rem 1rem 0.5rem 2rem;
+            font-size: 0.9375rem;
+
+        }
+        
+        .link-footer {
+            color: var(--button-text);
+        }
+
+        @media (max-width: 1024px) {
+
+            .top-header,
+            .main-header {
+                padding: 1rem 1.25rem;
+            }
+
+            .top-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .site-title {
+                font-size: 0.75rem;
+            }
+
+            .accessibility-controls {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                gap: 0.75rem;
+                position: relative;
+            }
+
+            .accessibility-controls .skip-link {
+                position: absolute;
+                left: -9999px;
+            }
+
+            .accessibility-controls .skip-link:focus {
+                position: absolute;
+                left: auto;
+                top: -0.5rem;
+                z-index: 10001;
+                background: var(--button-bg);
+                color: var(--button-text);
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                width: 100%;
+            }
+
+            .main-header {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.625rem;
+            }
+
+            .nav-button {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1.25rem;
+            }
+
+            .article-section {
+                padding: 1.25rem;
+            }
+
+            .footer {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .content-area {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="top-header">
+            <h1 class="site-title">GUIA DE MUSEUS ACESSÍVEIS DO BRASIL</h1>
+            <nav class="accessibility-controls" aria-label="Controles de acessibilidade">
+                <a href="#main-content" class="skip-link" tabindex="0">Ir para o conteúdo</a>
+                <button id="darkModeToggle" tabindex="0" aria-label="Alternar modo escuro">🌙 Modo escuro</button>
+                <button id="increaseText" tabindex="0" aria-label="Aumentar tamanho do texto">🔼 Aumentar texto</button>
+                <button id="decreaseText" tabindex="0" aria-label="Diminuir tamanho do texto">🔽 Diminuir texto</button>
+            </nav>
+        </div>
+
+        <div class="main-header">
+            <a href="index.html" class="logo" tabindex="0" aria-label="Guima - Página inicial">GuiMA</a>
+            <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+                <a href="index.html" class="nav-button" tabindex="0">Mapa de museus</a>
+                <a href="dados.html" class="nav-button" tabindex="0">Visualização de dados</a>
+                <a href="metodologia.html" class="nav-button active" tabindex="0">Sobre o projeto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="content-area">
+
+        <article>
+            <section class="article-section">
+                <h2 class="card-title">Sobre o projeto</h2>
+
+                <p>
+                    GuiMA é um trabalho de conclusão de conclusão de curso (TCC) 
+                    para o MBA de Jornalismo de Dados do IDP, realizado em 2025, 
+                    que busca reunir e apresentar as informações de acessibilidade 
+                    dos museus existentes no Brasil.</p>
+                <p>
+                    Foi desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/">Ícaro Ferracini</a>, 
+                    com orientação da professora <a href="https://www.linkedin.com/in/deborah-foroni/">Deborah Foroni</a>.
+                </p>
+
+                <h3>Descrição resumida do tema de investigação</h3>
+                <p>
+                    As barreiras para pessoas com deficiência visitarem um museu iniciam ainda na fase de planejamento,
+                    pois encontrar informações claras sobre acessibilidade de um local pode ser impossível.</p>
+                <p>
+                    Essa indisponibilidade, além de excluir parte do público, impede que milhões de brasileiros exerçam
+                    plenamente seu direito à cultura. Este projeto busca transformar esse cenário, oferecendo dados
+                    claros e acessíveis sobre a infraestrutura de acessibilidade dos museus brasileiros.
+                </p>
+                <h3>Justificativa</h3>
+                <p>
+                    No Brasil, <a
+                        href="https://www.gov.br/mdh/pt-br/assuntos/noticias/2023/julho/brasil-tem-18-6-milhoes-de-pessoas-com-deficiencia-indica-pesquisa-divulgada-pelo-ibge-e-mdhc">18,6
+                        milhões de pessoas vivem com algum tipo de deficiência</a> – quase 9% da população
+                    (<a
+                        href="https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/37317-pessoas-com-deficiencia-tem-menor-acesso-a-educacao-ao-trabalho-e-a-renda">IBGE,
+                        2023</a>).
+                </p>
+                <p>
+                    Apesar da Lei Brasileira de Inclusão da Pessoa com Deficiência (<a
+                        href="https://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-normaatualizada-pl.html">Lei
+                        nº 13.146/2015, art. 42</a>)
+                    garantir o direito de acesso à cultura, dos 4.005 museus registrados oficialmente no portal
+                    MuseusBR, segundo um levantamento realizado em janeiro de 2025, apenas 37,7%
+                    indicavam possuir recursos ou infraestrutura para acessibilidade.
+                </p>
+                <p>
+                    Nesse cenário, o projeto <strong>GuiMA (Guia de Museus Acessíveis)</strong> se propõe a ampliar essa
+                    discussão com uma melhor exposição das
+                    informações de acessibilidade nos Museus, ampliando o trabalho já existente do <a
+                        href="https://www.gov.br/museus/pt-br/assuntos/os-museus/museus-do-brasil/museus-do-brasil">Instituto
+                        Brasileiro de Museus - Ibram</a> no acesso à informação, tornando mais fácil ao público a
+                    consulta das instituições e trazendo uma nova perspectiva aos dados disponíveis, fortalecendo a
+                    transparência de informações e criando novas oportunidades de diálogo sobre o tema.
+                </p>
+            </section>
+            <section class="article-section">
+
+                <h2 class="card-title">Metodologia</h2>
+                <h3>Fonte de dados</h3>
+                <p>Todos os dados exibidos nesse projeto são do site <a
+                        href="http://museus.cultura.gov.br/">Museusbr</a>. Segundo o <a
+                        href="https://www.gov.br/museus/pt-br/assuntos/os-museus/museus-do-brasil/museus-do-brasil">Instituto
+                        Brasileiro de Museus - Ibram</a>:
+                </p>
+                <p class="quote">
+                    A fonte mais atualizada para conhecer os museus brasileiros é a plataforma <a
+                        href="http://museus.cultura.gov.br/">Museusbr</a>. Criado pela <a
+                        href="https://www.gov.br/museus/pt-br/assuntos/legislacao-e-normas/portarias/portaria-ibram-no-215-de-4-de-marco-de-2021">Portaria
+                        Ibram nº 215, de 4 de março de 2021</a>, Museusbr é o sistema nacional de identificação de
+                    museus e plataforma para mapeamento colaborativo, gestão e compartilhamento de informações sobre os
+                    museus brasileiros.
+                    <br><br>
+                    A plataforma tem como princípios a utilização de software livre, a colaboração, a descentralização,
+                    o uso de dados abertos e a transparência.
+                </p>
+
+                <p>As informações foram obtidas de duas formas: pela <strong>base
+                        disponibilizada oficialmente no site</strong> e por meio de <strong>raspagem de dados</strong>,
+                    coletando informações na própria plataforma do <a href="http://museus.cultura.gov.br/">Museusbr</a>.
+                </p>
+                <p>
+
+                    É importante ressaltar que os dados são autodeclarados pelos
+                    museus na plataforma e que não foi possível realizar verificação sobre
+                    os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi
+                    realizada em outubro de 2025, e as informações podem ter sido atualizadas pelos
+                    museus posteriormente.
+                </p>
+                <h4>Bibliotecas Python utilizadas</h4>
+
+                <p>Para a raspagem, análise e tratamento das informações, foram utilizadas bibliotecas como:</p>
+
+                <ul>
+                    <li><strong>Pandas</strong>: Manipulação de dados (tabelas, planilhas, CSV etc.)</li>
+                    <li><strong>Requests</strong>: Faz requisições HTTP (acessar sites, APIs etc.)</li>
+                    <li><strong>BeautifulSoup</strong>: Extrai dados de páginas HTML (web scraping)</li>
+                    <li><strong>TQDM</strong>: Mostrar barras de progresso nos loops</li>
+                    <li><strong>Numpy</strong>: Análise, cálculo numérico e operações com arrays</li>
+                    <li><strong>Matplotlib</strong>: Visualização de dados</li>
+                    <li><strong>Geopy</strong>: Uso do Nominatim para obter as coordenadas de localização com base em um endereço</li>
+                </ul>
+
+                <h3>Obtenção dos dados: Base de dados oficial do MuseusBR e raspagem de dados</h3>
+                <p>
+                    O própio site <a href="http://museus.cultura.gov.br/">Museusbr</a> disponibiliza em seu <a
+                        href="https://cadastro.museus.gov.br/painel-analitico/">painel analítico</a> uma planilha com os
+                    dados completos, disponível nesse link: <a
+                        href="https://encurtador.com.br/cnxNR">https://encurtador.com.br/cnxNR</a>.
+                </p>
+                <p>
+                    Essa planilha foi utilizada como base das informações para a raspagem de dados, com objetivo de
+                    complementar as informações fornecidas pela planilha.
+                </p>
+                <p>
+                    A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025,
+                    acessando as páginas públicas do <a href="http://museus.cultura.gov.br/">Museusbr</a> de
+                    acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram
+                    acessadas
+                    4.024 páginas individuais de museus,
+                    obtendo as informações apresentadas em cada uma das páginas, como:
+                </p>
+                <ol>
+                    <li>Gestão</li>
+                    <li>Contrato de Gestão</li>
+                    <li>Caracterização</li>
+                    <li>Acervo</li>
+                    <li>Público, Acessibilidade e Serviços</li>
+                    <li>Biblioteca e Arquivo Histórico</li>
+                    <li>Atividades Educativas e Culturais</li>
+                    <li>Endereço de visitação</li>
+                </ol>
+
+                <h3>Tratamento dos dados</h3>
+                <p>
+                    Com posse da planilha disponibilizada e dos dados coletados pela raspagem realizada, iniciou-se a
+                    etapa de tratamento de dados utilizando a linguagem Python.
+                </p>
+                <p>Esse tratamento de dados consistiu em processos como:
+                </p>
+                <ul>
+                    <li>Organizar as informações coletadas: juntar a base disponibilizada com as informações obtidas
+                        pela raspagem de dados</li>
+                    <li>Revisar os dados das bases: comparar as informações e identificar os tratamentos necessários
+                        para início do projeto</li>
+                    <li>Remover informações duplicadas: eliminar colunas iguais resultante da junção das bases e valores
+                        redundantes das colunas da raspagem</li>
+                    <li>Reestruturar dados obtidos do site: reclassificar algumas informações como os recursos de
+                        acessibilidade para que fosse possível criar uma classificação</li>
+                    <li>Complementar informações faltantes: pesquisar e incluir dados
+                        de endereço de 69 museus (1,7% do total) utilizando a biblioteca
+                        Nominatim e serviços de geocodificação</li>
+                    <li>Ajustar e corrigir termos e palavras: normalização de diversos termos como "rampa", "rampas",
+                        "Rampa", "Rampas", "RAMPA", "Rampa de acesso" para melhor funcionamento dos filtros e
+                        apresentação</li>
+                </ul>
+
+                <h3>Apresentação dos dados</h3>
+                <p>Após todo o tratamento das informações foi iniciada a apresentação desses dados, em 2 formatos:</p>
+
+                <h4>Mapa de museus acessíveis</h4>
+                <p>A primeira apresentação, pensando em um público amplo, deveria ser em um formato que permitisse
+                    explorar os dados de forma geoespacial, navegando em um mapa para conhecer as instituições que
+                    podemos visitar.</p>
+                <p>Além dessa navegação, era fundamental pontuar as questões de acessibilidade no cadastro dos museus.
+                    Observando os dados cadastrados no MuseusBR, existem três temas dentro do menu "Público,
+                    Acessibilidade e Serviços":</p>
+                <ol>
+                    <li><strong>Pessoas com dificuldade de locomoção</strong></li>
+                    <li><strong>Pessoas com deficiências auditivas e/ou visuais</strong></li>
+                    <li><strong>Infraestrutura para atendimento a turistas estrangeiros</strong></li>
+                </ol>
+                <p>Utilizando essas dimensões como base, foi criada a seguinte classificação, chamada "Nível de
+                    acessibilidade":</p>
+                <ol>
+                    <li><strong>"Acessível"</strong>: É o museu que possui ao menos um recurso ou infraestrutura
+                        <strong>em todas as três dimensões</strong>
+                    </li>
+                    <li><strong>"Parcialmente Acessível"</strong>: É a instituição que possui ao menos um recurso ou
+                        infraestrutura <strong>em alguma das dimensões, mas não em todas elas</strong></li>
+                    <li><strong>"Sem acessibilidade"</strong>: Considerado quando todas as três dimensões estão marcadas
+                        como <strong>"Não possui"</strong>, <strong>"Não disponível"</strong> ou <strong>"Não se
+                            aplica"</strong></li>
+                    <li><strong>"Sem informação sobre acessibilidade"</strong>: Classificação exibida quando as
+                        dimensões estão como <strong>"Não informado"</strong> ou <strong>"Não há dados"</strong></li>
+                </ol>
+                <p>No mapa, pensando em otimizar a experiência das pessoas durante a consulta, quando o museu está
+                    classificado como "Sem acessibilidade" ou "Sem informação sobre acessibilidade" é suprimida a parte
+                    "Recursos de Acessibilidade".</p>
+                <p>De forma complementar a navegação no mapa, foram incluídos os seguintes filtros para auxiliar a busca
+                    pelos museus:</p>
+                <ol>
+                    <li>Buscar por nome</li>
+                    <li>Estado</li>
+                    <li>Nível de acessibilidade</li>
+                    <li>Recursos de acessibilidade</li>
+                    <li>Temática</li>
+                    <li>Funcionamento do museu</li>
+                    <li>Visita com guia</li>
+                    <li>Entrada gratuita</li>
+                </ol>
+                <p>Essas funcionalidades auxiliam a encontrar e explorar os museus existentes.</p>
+                <h5>Bibliotecas JavaScript utilizadas</h5>
+                <p>Para carregar e exibir os dados de forma dinâmica no site,
+                    foram utilizadas bibliotecas JavaScript de código aberto.</p>
+                <p>A biblioteca <strong>PapaParse</strong> foi responsável por ler arquivos CSV
+                    diretamente no navegador, permitindo que a base de dados dos
+                    museus fosse carregada de forma rápida. Isso facilitou
+                    a alimentação automática dos filtros e do mapa,
+                    garantindo maior leveza ao site.</p>
+                <p>
+                    Já a biblioteca <strong>Leaflet</strong> foi empregada para criar o mapa
+                    interativo que apresenta os museus de todo o Brasil.
+                    Por ser uma solução gratuita, leve e personalizável,
+                    o <strong>Leaflet</strong> possibilitou adicionar marcadores customizados,
+                    alternar entre modo claro e escuro e permitir a navegação
+                    geoespacial de forma intuitiva e acessível, mesmo com
+                    um grande volume de pontos exibidos simultaneamente.
+                </p>
+
+
+                <h4>Visualização de Dados</h4>
+                <p>Outra forma de contribuir para a discussão do tema foi trazer uma visualização dos dados utilizados
+                    para montar o mapa.</p>
+                <p>Complementando a visão do mapa e com objetivo de dar mais visibilidade aos temas de cultura e
+                    acessibilidade, foram explorados dados como:</p>
+                <ol>
+                    <li>Porcentagem de museus com acessibilidade no Brasil</li>
+                    <li>Acessibilidade dos museus por estado</li>
+                    <li>Principais recursos e infraestrutura de acessibilidade</li>
+                    <li>Museus sem recursos ou sem informação</li>
+                    <li>Situação de funcionamento dos museus cadastrados</li>
+                    <li>Temáticas dos Museus no Brasil</li>
+                    <li>Visitas Guiadas nos Museus Brasileiros</li>
+                    <li>Cobrança de Entrada nos Museus Brasileiros</li>
+                    <li>Presença Digital dos Museus Brasileiros</li>
+                </ol>
+                <p>Tanto a segmentação quanto a organização mais visual em gráficos permite olhar sobre os dados e
+                    informações por outras perspectivas, contribuindo para um olhar mais amplo sobre os assuntos.</p>
+                <h5>Decisões de visualização</h5>
+                <p>Todas as visualizações de dados apresentadas foram pensadas para funcionar também em telas grandes
+                    (resoluções maiores que 1024px) quanto em telas de celulares e tablets.</p>
+                <p>A escolha das visualizações levou em conta quesitos como:</p>
+                <ul>
+                    <li>Clareza da informação apresentada, minimizando erros de interpretação</li>
+                    <li>Facilidade no consumo da informação, reduzindo o esforço para obter o dado</li>
+                    <li>Interação com os dados, permitindo o aprofundamento no tema apresentado, quando aplicável</li>
+                </ul>
+                <p>Para isso foram escolhidos desenhos como:</p>
+                <ul>
+                    <li>Gráficos de barras horizontais para facilitar a leitura de rótulos longos e comparação com
+                        outras informações</li>
+                    <li>Gráficos de barras empilhadas, para uma visão geral seguido de informações detalhadas sobre sua
+                        divisão</li>
+                    <li>Tabelas ordenáveis para permitir diferentes análises exploratórias e facilitar comparações</li>
+                </ul>
+
+            </section>
+            <section class="article-section">
+                <h2>Acessibilidade no projeto</h2>
+                <p>Para a realização do projeto era evidente a necessidade de uma atenção com a acessibilidade das
+                    informações portanto, foram trabalhados recursos voltados para auxiliar as pessoas a consumirem o
+                    conteúdo desse trabalho, tais como:</p>
+                <ul>
+                    <li><strong>Navegação via teclado</strong>: possibilitando o uso sem o mouse no computador</li>
+                    <li><strong>Informações acessíveis via leitores de tela</strong>: para que pessoas cegas ou com
+                        baixa visão possam consumir as informações</li>
+                    <li><strong>Modo de contraste claro e escuro</strong>: adaptando o site para pessoas
+                        neurodivergentes ou para ambientes específicos, conforme a preferência ou necessidade</li>
+                    <li><strong>Ajuste no tamanho do texto</strong>: possibilidade de aumentar ou diminuir o tamanho da
+                        fonte em todo o site</li>
+                    <li><strong>Cores com contraste adequado</strong>: garantindo um contraste mínimo para melhor
+                        visualização das informações</li>
+                </ul>
+                <p>Essas funcionalidades adicionadas ainda podem e devem ser melhoradas para uma melhor experiência para
+                    todo o público.</p>
+
+            </section>
+            <section class="article-section">
+                <h2>Considerações éticas</h2>
+                <p>Todos os dados utilizados são públicos e disponibilizados pelo <a
+                        href="http://museus.cultura.gov.br/">Museusbr</a>. </p>
+                <p> O projeto tem caráter informativo e não substitui
+                    a consulta direta aos museus para confirmação de recursos específicos de
+                    acessibilidade. Todos os museus apresentados possuem o link direto para sua respectiva página
+                    oficial na plataforma <a href="http://museus.cultura.gov.br/">Museusbr</a>.</p>
+                <p>A classificação de acessibilidade proposta foi desenvolvida somente a partir das
+                    categorias disponíveis na plataforma e a construção do projeto foi realizada com
+                    base nas diretrizes de acessibilidade da <a
+                        href="https://www.w3.org/Translations/WCAG20-pt-br/WCAG20-pt-br-20141024/">WCAG (Web Content
+                        Accessibility Guidelines)</a>.
+                </p>
+                <p>Reconhece-se que uma validação com especialistas em acessibilidade e,
+                    especialmente, com pessoas com deficiência para testar tanto o conteúdo
+                    quanto o formato de apresentação, agregaria robustez metodológica e
+                    legitimidade ao projeto.
+                </p>
+
+                <h3>Uso de inteligência artificial</h3>
+                <p>Foram utilizados os modelos de inteligência artificial
+                    <strong>ChatGPT-5</strong> e <strong>Claude Sonet 4.5</strong>
+                    (das empresas <strong>OpenAI</strong> e <strong>Anthropic</strong>,
+                    respectivamente) para criação, revisão e teste do código utilizado
+                    para raspagem de dados, análise e construção do site e de suas visualizações de dados.
+                </p>
+
+            </section>
+
+            <section class="article-section">
+
+                <h2>Trabalhos futuros e possibilidades de expansão</h2>
+                <p>Este projeto representa uma primeira etapa na democratização do acesso
+                    a informações sobre acessibilidade em museus brasileiros. Para
+                    aprimoramentos futuros, sugere-se:</p>
+                <ul>
+                    <li><strong>Atualização periódica dos dados:</strong> Implementar
+                        coleta automatizada trimestral ou semestral para manter as
+                        informações atualizadas</li>
+                    <li><strong>Validação com usuários:</strong> Realizar testes de
+                        usabilidade com pessoas com deficiência para validar a
+                        classificação e a experiência de uso</li>
+                    <li><strong>Sistema de feedback:</strong> Permitir que visitantes
+                        reportem inconsistências ou atualizações sobre a acessibilidade
+                        dos museus</li>
+                    <li><strong>Expansão para outros equipamentos culturais:</strong>
+                        Possibilidade de aplicar a mesma metodologia para teatros, cinemas, bibliotecas
+                        e centros culturais</li>
+                </ul>
+            </section>
+
+            <section class="article-section">
+
+                <h2>Dados utilizados e arquivos produzidos</h2>
+                <p>Todos os arquivos utilizados e produzidos nesse projeto podem ser acessados no <a href="https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/05%20-%20Projeto%20em%20HTML/index.html">Github</a> para consulta, verificação e criação de outros projetos.</p>
+            </section>
+        </article>
+
+        <a href="#main-nav" class="back-to-top" tabindex="0">Voltar ao menu de navegação do site</a>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Projeto desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/" class="link-footer">Ícaro Ferracini</a> como trabalho de conclusão de curso para o MBA de Jornalismo de Dados - 2025</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️ Modo claro';
+            darkModeToggle.setAttribute('aria-label', 'Alternar para modo claro');
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            darkModeToggle.textContent = '🌙 Modo escuro';
+            darkModeToggle.setAttribute('aria-label', 'Alternar para modo escuro');
+        }
+
+        const savedMode = localStorage.getItem('darkMode');
+
+        if (savedMode === 'enabled') {
+            enableDarkMode();
+        } else if (savedMode === 'disabled') {
+            disableDarkMode();
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.textContent = '☀️ Modo claro';
+                darkModeToggle.setAttribute('aria-label', 'Alternar para modo claro');
+                if (state.map && state.lightTileLayer && state.darkTileLayer) {
+                    state.map.removeLayer(state.lightTileLayer);
+                    state.map.addLayer(state.darkTileLayer);
+                }
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.textContent = '🌙 Modo escuro';
+                darkModeToggle.setAttribute('aria-label', 'Alternar para modo escuro');
+                if (state.map && state.lightTileLayer && state.darkTileLayer) {
+                    state.map.removeLayer(state.darkTileLayer);
+                    state.map.addLayer(state.lightTileLayer);
+                }
+            }
+        });
+
+        let currentFontSize = 100;
+        const minFontSize = 75;
+        const maxFontSize = 150;
+        const fontSizeStep = 12.5;
+
+        if (localStorage.getItem('fontSize')) {
+            currentFontSize = parseFloat(localStorage.getItem('fontSize'));
+            document.documentElement.style.fontSize = currentFontSize + '%';
+        }
+
+        document.getElementById('increaseText').addEventListener('click', () => {
+            if (currentFontSize < maxFontSize) {
+                currentFontSize += fontSizeStep;
+                document.documentElement.style.fontSize = currentFontSize + '%';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+
+        document.getElementById('decreaseText').addEventListener('click', () => {
+            if (currentFontSize > minFontSize) {
+                currentFontSize -= fontSizeStep;
+                document.documentElement.style.fontSize = currentFontSize + '%';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+    </script>
+</body>
+</html>
