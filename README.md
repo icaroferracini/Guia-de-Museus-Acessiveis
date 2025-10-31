@@ -1,6 +1,6 @@
 # Sobre o GuiMA - Guia de Museus Acessíveis do Brasil
 
-GuiMA é um trabalho de conclusão de conclusão de curso (TCC) para o MBA de Jornalismo de Dados do IDP, realizado em 2025, que busca reunir e apresentar as informações de acessibilidade dos museus existentes no Brasil.
+GuiMA é um trabalho de conclusão de curso (TCC) para o MBA de Jornalismo de Dados do IDP, realizado em 2025, que busca reunir e apresentar as informações de acessibilidade dos museus existentes no Brasil.
 
 Foi desenvolvido por [Ícaro Ferracini](https://www.linkedin.com/in/icaroferracini/), com orientação da professora [Deborah Foroni](https://www.linkedin.com/in/deborah-foroni/), e pode ser [acessado nesse link](https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/03%20-%20Visualizacao/index.html).
 
