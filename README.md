@@ -24,7 +24,7 @@ Nesse cenário, o projeto **GuiMA (Guia de Museus Acessíveis)** se propõe a am
 
 ## Fonte de dados
 
-Todos os dados exibidos nesse projeto são do site [MuseusBR](http://museus.cultura.gov.br/). Segundo o Instituto Brasileiro de Museus - Ibram:
+Todos os dados exibidos neste projeto são do site [MuseusBR](http://museus.cultura.gov.br/). Segundo o Instituto Brasileiro de Museus - Ibram:
 
 > "A fonte mais atualizada para conhecer os museus brasileiros é a plataforma [MuseusBR](http://museus.cultura.gov.br/). Criado pela [Portaria Ibram nº 215, de 4 de março de 2021](https://www.gov.br/museus/pt-br/assuntos/legislacao-e-normas/portarias/portaria-ibram-no-215-de-4-de-marco-de-2021), [MuseusBR](http://museus.cultura.gov.br/) é o sistema nacional de identificação de museus e plataforma para mapeamento colaborativo, gestão e compartilhamento de informações sobre os museus brasileiros."
 
