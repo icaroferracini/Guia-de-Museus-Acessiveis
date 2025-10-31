@@ -48,11 +48,11 @@ Para a raspagem, análise e tratamento das informações, foram utilizadas bibli
 
 ## Obtenção dos dados: Base de dados oficial do MuseusBR e raspagem de dados
 
-O própio site [MuseusBR](http://museus.cultura.gov.br/) disponibiliza em seu painel analítico uma planilha com os dados completos, disponível nesse link: https://encurtador.com.br/cnxNR.
+O próprio site [MuseusBR](http://museus.cultura.gov.br/) disponibiliza em seu painel analítico uma planilha com os dados completos, disponível nesse link: https://encurtador.com.br/cnxNR.
 
 Essa planilha foi utilizada como base das informações para a raspagem de dados, com objetivo de complementar as informações fornecidas pela planilha.
 
-A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.024 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
+A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.047 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
 
 1. Gestão
 2. Contrato de Gestão
