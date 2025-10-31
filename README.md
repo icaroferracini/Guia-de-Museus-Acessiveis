@@ -157,7 +157,7 @@ Para isso foram escolhidos desenhos como:
 
 # Acessibilidade no projeto
 
-Para a realização do projeto era evidente a necessidade de uma atenção com a acessibilidade das informações portanto, foram trabalhados recursos voltados para auxiliar as pessoas a consumirem o conteúdo desse trabalho, tais como:
+Para a realização do projeto era evidente a necessidade de uma atenção com a acessibilidade das informações portanto, foram trabalhados recursos voltados para auxiliar as pessoas a consumirem o conteúdo deste trabalho, tais como:
 
 - **Navegação via teclado**: possibilitando o uso sem o mouse no computador
 - **Informações acessíveis via leitores de tela**: para que pessoas cegas ou com baixa visão possam consumir as informações
