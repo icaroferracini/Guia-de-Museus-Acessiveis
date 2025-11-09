@@ -14,7 +14,7 @@ Essa indisponibilidade, além de excluir parte do público, impede que milhões 
 
 No Brasil, [18,6 milhões de pessoas vivem com algum tipo de deficiência](https://www.gov.br/mdh/pt-br/assuntos/noticias/2023/julho/brasil-tem-18-6-milhoes-de-pessoas-com-deficiencia-indica-pesquisa-divulgada-pelo-ibge-e-mdhc) – quase 9% da população ([IBGE, 2023](https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/37317-pessoas-com-deficiencia-tem-menor-acesso-a-educacao-ao-trabalho-e-a-renda)).
 
-Apesar da Lei Brasileira de Inclusão da Pessoa com Deficiência ([Lei nº 13.146/2015, art. 42](https://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-normaatualizada-pl.html)) garantir o direito de acesso à cultura, dos 4.005 museus registrados oficialmente no portal [MuseusBR](http://museus.cultura.gov.br/), segundo um levantamento realizado em janeiro de 2025, apenas 37,7% indicavam possuir recursos ou infraestrutura para acessibilidade.
+Apesar da Lei Brasileira de Inclusão da Pessoa com Deficiência ([Lei nº 13.146/2015, art. 42](https://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-normaatualizada-pl.html)) garantir o direito de acesso à cultura, , ainda temos muitos ambientes que não possuem recursos ou infraestrutura que garantam a acessibilidade para todos. O levantamento feito durante essa pesquisa, no mês de novembro de 2025 no portal [MuseusBR](http://museus.cultura.gov.br/), mostra que 1.181 dos 4.056 museus registrados oficialmente (aproximadamente 29,1%) não possuem nenhum recurso ou infraestrutura direcionada para acessibilidade. 
 
 Nesse cenário, o projeto **GuiMA (Guia de Museus Acessíveis)** se propõe a ampliar essa discussão com uma melhor exposição das informações de acessibilidade nos Museus, ampliando o trabalho já existente do [Instituto Brasileiro de Museus - Ibram](https://www.gov.br/museus/pt-br/assuntos/os-museus/museus-do-brasil/museus-do-brasil) no acesso à informação, tornando mais fácil ao público a consulta das instituições e trazendo uma nova perspectiva aos dados disponíveis, fortalecendo a transparência de informações e criando novas oportunidades de diálogo sobre o tema.
 
@@ -32,7 +32,7 @@ Todos os dados exibidos neste projeto são do site [MuseusBR](http://museus.cult
 
 As informações foram obtidas de duas formas: pela **base disponibilizada oficialmente no site** e por meio de **raspagem de dados**, coletando informações na própria plataforma do [MuseusBR](http://museus.cultura.gov.br/).
 
-É importante ressaltar que os dados são autodeclarados pelos museus na plataforma e que não foi possível realizar verificação sobre os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi realizada em outubro de 2025, e as informações podem ter sido atualizadas pelos museus posteriormente.
+É importante ressaltar que os dados são autodeclarados pelos museus na plataforma e que não foi possível realizar verificação sobre os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi realizada em novembro de 2025, e as informações podem ter sido atualizadas pelos museus posteriormente.
 
 ### Bibliotecas Python utilizadas
 
@@ -52,7 +52,7 @@ O próprio site [MuseusBR](http://museus.cultura.gov.br/) disponibiliza em seu p
 
 Essa planilha foi utilizada como base das informações para a raspagem de dados, com objetivo de complementar as informações fornecidas pela planilha.
 
-A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.047 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
+A raspagem de dados foi realizada utilizando a linguagem Python no mês de novembro de 2025, acessando as páginas públicas do [MuseusBR](http://museus.cultura.gov.br/) de acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram acessadas 4.056 páginas individuais de museus, obtendo as informações apresentadas em cada uma das páginas, como:
 
 1. Gestão
 2. Contrato de Gestão
@@ -72,7 +72,7 @@ Esse tratamento de dados consistiu em processos como:
 - Revisar os dados das bases: comparar as informações e identificar os tratamentos necessários para início do projeto
 - Remover informações duplicadas: eliminar colunas iguais resultante da junção das bases e valores redundantes das colunas da raspagem
 - Reestruturar dados obtidos do site: reclassificar algumas informações como os recursos de acessibilidade para que fosse possível criar uma classificação
-- Complementar informações faltantes: pesquisar e incluir dados de endereço de 69 museus (1,7% do total) utilizando a biblioteca Nominatim e serviços de geocodificação
+- Complementar informações faltantes: pesquisar e incluir dados de endereço de 97 museus (2,39% do total) utilizando a biblioteca Nominatim e serviços de geocodificação
 - Ajustar e corrigir termos e palavras: normalização de diversos termos como "rampa", "rampas", "Rampa", "Rampas", "RAMPA", "Rampa de acesso" para melhor funcionamento dos filtros e apresentação
 
 ## Apresentação dos dados
@@ -91,10 +91,13 @@ Além dessa navegação, era fundamental pontuar as questões de acessibilidade 
 
 Utilizando essas dimensões como base, foi criada a seguinte classificação, chamada "Nível de acessibilidade":
 
-1. "**Acessível**": É o museu que possui ao menos um recurso ou infraestrutura **em todas as três dimensões**
-2. "**Parcialmente Acessível**": É a instituição que possui ao menos **um recurso ou infraestrutura em alguma das dimensões, mas não em todas** elas
-3. "**Sem acessibilidade**": Considerado quando todas as três dimensões estão marcadas como "**Não possui**", "**Não disponível**" ou "**Não se aplica**"
-4. "**Sem informação sobre acessibilidade**": Classificação exibida quando as dimensões estão como "**Não informado**" ou "**Não há dados**"
+1. "**Acessível**": É o museu que possui ao menos um recurso ou infraestrutura **em todas as três dimensões**.  Representado pela cor verde com o ícone “✓” (check/visto).
+
+2. "**Parcialmente Acessível**": É a instituição que possui ao menos **um recurso ou infraestrutura em alguma das dimensões, mas não em todas** elas. Representado pela cor amarela com o ícone “!” (exclamação).
+
+3. "**Sem acessibilidade**": Considerado quando todas as três dimensões estão marcadas como "**Não possui**", "**Não disponível**" ou "**Não se aplica**". Representado pela cor vermelha com o ícone “✕” (xis).
+
+4. "**Sem informação sobre acessibilidade**": Classificação exibida quando as dimensões estão como "**Não informado**" ou "**Não há dados**". Representado pela cor cinza com o ícone “?” (interrogação).
 
 No mapa, pensando em otimizar a experiência das pessoas durante a consulta, quando o museu está classificado como "Sem acessibilidade" ou "Sem informação sobre acessibilidade" é suprimida a parte "Recursos de Acessibilidade".
 
