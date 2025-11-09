@@ -1837,7 +1837,7 @@
             showLoading();
 
             try {
-                const response = await fetch('DadosMuseus.csv');
+                const response = await fetch('../01 - Dados/DadosMuseus.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ao carregar CSV: ${response.status}`);
