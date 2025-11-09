@@ -1211,7 +1211,11 @@
         }
 
         .article-section ul {
-            padding: 0 0 1rem;
+            padding: 0 0 0.5rem;
+        }
+
+        .article-section .listacategorias {
+            margin: 0 0 0 2rem;
         }
 
         a {
@@ -1235,7 +1239,7 @@
 
         .legend-item {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             gap: 0.5rem;
         }
 
@@ -1263,6 +1267,7 @@
         .legend-item .custom-marker {
             box-shadow: none;
         }
+
         .link-footer {
             color: var(--button-text);
         }
@@ -1410,15 +1415,35 @@
 
         <section class="article-section" aria-labelledby="legendaTitulo">
             <h2 id="legendaTitulo" class="guima-filters-title">Mapa de museus acessíveis</h2>
-            <p>Cada ícone representa o nível de acessibilidade dos museus.</p>
+            <p>Cada ícone representa o nível de acessibilidade dos museus com relação aos recursos e infraestrutura
+                disponível para
+                atender os seguintes públicos:</p>
+
+            <ul>
+                <li class="listacategorias">
+                    Pessoas com
+                    dificuldade de locomoção
+                </li>
+                <li class="listacategorias">
+                    Pessoas com deficiências auditivas e/ou visuais
+                </li>
+                <li class="listacategorias">
+                    Turistas
+                    estrangeiros
+                </li>
+            </ul>
+
+
             <ul class="map-legend" role="list">
                 <li class="legend-item">
                     <div class="custom-marker marker-acessivel" tabindex="0">
-                        <div class="custom-marker-inner"
-                            aria-label="Imagem de marcador verde com um visto dentro: Acessível — museu com acessibilidade completa">
+                        <div class="custom-marker-inner" aria-label="Imagem de marcador verde com um visto dentro: Acessível — atende dificuldades de locomoção, audição
+                        e/ou visual e
+                        turistas estrangeiros">
                             ✓</div>
                     </div>
-                    <span aria-label="hidden">Acessível — museu com acessibilidade completa</span>
+                    <span aria-label="hidden"><strong>Acessível</strong> — possui acessibilidade completa para o
+                        público</span>
                 </li>
                 <li class="legend-item">
                     <div class="custom-marker marker-parcial" tabindex="0">
@@ -1426,7 +1451,8 @@
                             aria-label="Imagem de marcador amarelo com uma exclamação dentro: Parcialmente acessível — possui alguns recursos de acessibilidade">
                             !</div>
                     </div>
-                    <span aria-label="hidden">Parcialmente acessível — possui alguns recursos de acessibilidade</span>
+                    <span aria-label="hidden"><strong>Parcialmente acessível</strong> — apresenta alguns itens
+                        de acessibilidade </span>
                 </li>
                 <li class="legend-item">
                     <div class="custom-marker marker-sem-recursos" tabindex="0">
@@ -1434,7 +1460,8 @@
                             aria-label="Imagem de marcador vermelho com um x dentro: Sem recursos de acessibilidade disponíveis no local">
                             ✕</div>
                     </div>
-                    <span aria-label="hidden">Sem recursos de acessibilidade disponíveis no local</span>
+                    <span aria-label="hidden"><strong>Sem acessibilidade</strong> — não possui recursos ou
+                        infraestrutura</span>
                 </li>
                 <li class="legend-item">
                     <div class="custom-marker marker-info-insuficiente" tabindex="0">
@@ -1442,7 +1469,8 @@
                             aria-label="Imagem de marcador cinza com uma interrogação dentro: Informações de acessibilidade não disponíveis no site oficial">
                             ?</div>
                     </div>
-                    <span aria-label="hidden">Informações de acessibilidade não disponíveis no site oficial</span>
+                    <span aria-label="hidden"><strong> Sem informações</strong> — dados não apresentados no cadastro do
+                        museu</span>
                 </li>
             </ul>
         </section>
@@ -1501,8 +1529,8 @@
                             aria-expanded="false">
                         </button>
                         <div id="recursosDropdown" class="guima-dropdown hidden" role="listbox">
-                            <input type="text" class="guima-dropdown-search" id="recursosSearch"
-                                placeholder="Busque por um recurso...">
+                            <!--    <input type="text" class="guima-dropdown-search" id="recursosSearch"
+                                placeholder="Busque por um recurso...">-->
                             <div id="recursosOptions"></div>
                         </div>
                     </div>
@@ -1514,8 +1542,8 @@
                             <span class="guima-select-button-placeholder">Selecione...</span>
                         </button>
                         <div id="tematicaDropdown" class="guima-dropdown hidden" role="listbox">
-                            <input type="text" class="guima-dropdown-search" id="tematicaSearch"
-                                placeholder="Busque por um tema...">
+                            <!--<input type="text" class="guima-dropdown-search" id="tematicaSearch"
+                                placeholder="Busque por um tema...">-->
                             <div id="tematicaOptions"></div>
                         </div>
                     </div>
@@ -1617,8 +1645,8 @@
             <h3 class="guima-note-title">Fonte de dados utilizada</h3>
             <p>Os dados utilizados são autodeclarados pelos museus na plataforma oficial <a
                     href="https://cadastro.museus.gov.br/">MuseusBR</a>, criada pelo <a
-                    href="https://www.gov.br/museus/pt-br">Instituto Brasileiro de Museus - Ibram</a>.
-                A última coleta de dados foi realizada em outubro de 2025, e as informações podem ter sido atualizadas
+                    href="https://www.gov.br/museus/pt-br">Instituto Brasileiro de Museus - Ibram</a>.<br>
+                A última coleta de dados foi realizada em novembro de 2025 e as informações podem ter sido atualizadas
                 pelos museus posteriormente. Recomenda-se entrar em contato com o museu antes da visita.</p>
         </section>
     </main>
@@ -1631,7 +1659,9 @@
     </div>
 
     <footer class="footer">
-        <p class="footer-text">Projeto desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/" class="link-footer">Ícaro Ferracini</a> como trabalho de conclusão de curso para o MBA de Jornalismo de Dados - 2025</p>
+        <p class="footer-text">Projeto desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/"
+                class="link-footer">Ícaro Ferracini</a> como trabalho de conclusão de curso para o MBA de Jornalismo de
+            Dados - 2025</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
@@ -1807,7 +1837,7 @@
             showLoading();
 
             try {
-                const response = await fetch('../01 - Dados/DadosMuseus.csv');
+                const response = await fetch('DadosMuseus.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ao carregar CSV: ${response.status}`);
@@ -1885,8 +1915,8 @@
                 recursosVisualAuditiva: extractResources(row['Deficiencia Visual e Auditiva']),
                 recursosEstrangeira: extractResources(row['Pessoa Estrangeira']),
                 FiltroRecursos: extractResources(row['FiltroRecursos']),
-                
-                
+
+
                 logradouro: row['Logradouro'],
                 numero: row['Número'],
                 complemento: row['Complemento'],
@@ -1931,7 +1961,7 @@
                 //m.recursosVisualAuditiva.forEach(r => { if (r) sets.recursos.add(r); });
                 //m.recursosEstrangeira.forEach(r => { if (r) sets.recursos.add(r); });
                 m.FiltroRecursos.forEach(r => { if (r) sets.recursos.add(r); });
-                
+
             });
 
             state.filterOptions = {
@@ -2413,7 +2443,7 @@
                 content += `</address></div>`;
             }
 
-            if ( museum.FiltroRecursos.length > 0) { // museum.recursosLocomocao.length > 0 || museum.recursosVisualAuditiva.length > 0 || museum.recursosEstrangeira.length > 0) {
+            if (museum.FiltroRecursos.length > 0) { // museum.recursosLocomocao.length > 0 || museum.recursosVisualAuditiva.length > 0 || museum.recursosEstrangeira.length > 0) {
                 content += `<div class="guima-modal-section">
                     <h3 class="guima-modal-section-title">Recursos de Acessibilidade</h3>`;
 
@@ -2440,18 +2470,18 @@
                     museum.recursosEstrangeira.forEach(r => content += `<li>${r}</li>`);
                     content += `</ul></div>`;
                 }
-                
-/*
-                if (museum.FiltroRecursos.length > 0) {
-                    content += `<div style="margin-bottom: 0.75rem;">
-                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Pessoa Estrangeira</h4>
-                        <ul class="guima-modal-list">`;
-                    museum.FiltroRecursos.forEach(r => content += `<li>${r}</li>`);
-                    content += `</ul></div>`;
-                }
-                    */
 
-                
+                /*
+                                if (museum.FiltroRecursos.length > 0) {
+                                    content += `<div style="margin-bottom: 0.75rem;">
+                                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Pessoa Estrangeira</h4>
+                                        <ul class="guima-modal-list">`;
+                                    museum.FiltroRecursos.forEach(r => content += `<li>${r}</li>`);
+                                    content += `</ul></div>`;
+                                }
+                                    */
+
+
                 content += `</div>`;
             }
 
@@ -3099,4 +3129,5 @@
         loadCSVData();
     </script>
 </body>
+
 </html>

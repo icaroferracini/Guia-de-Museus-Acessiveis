@@ -307,7 +307,7 @@
             font-size: 0.9375rem;
 
         }
-        
+
         .link-footer {
             color: var(--button-text);
         }
@@ -421,13 +421,14 @@
                 <h2 class="card-title">Sobre o projeto</h2>
 
                 <p>
-                    GuiMA é um trabalho de conclusão de curso (TCC) 
-                    para o MBA de Jornalismo de Dados do IDP, realizado em 2025, 
-                    que busca reunir e apresentar as informações de acessibilidade 
+                    GuiMA é um trabalho de conclusão de curso (TCC)
+                    para o MBA de Jornalismo de Dados do IDP, realizado em 2025,
+                    que busca reunir e apresentar as informações de acessibilidade
                     dos museus existentes no Brasil.</p>
                 <p>
-                    Foi desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/">Ícaro Ferracini</a>, 
-                    com orientação da professora <a href="https://www.linkedin.com/in/deborah-foroni/">Deborah Foroni</a>.
+                    Foi desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/">Ícaro Ferracini</a>,
+                    com orientação da professora <a href="https://www.linkedin.com/in/deborah-foroni/">Deborah
+                        Foroni</a>.
                 </p>
 
                 <h3>Descrição resumida do tema de investigação</h3>
@@ -452,9 +453,11 @@
                     Apesar da Lei Brasileira de Inclusão da Pessoa com Deficiência (<a
                         href="https://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-normaatualizada-pl.html">Lei
                         nº 13.146/2015, art. 42</a>)
-                    garantir o direito de acesso à cultura, dos 4.005 museus registrados oficialmente no portal
-                    MuseusBR, segundo um levantamento realizado em janeiro de 2025, apenas 37,7%
-                    indicavam possuir recursos ou infraestrutura para acessibilidade.
+                    garantir o direito de acesso à cultura, o levantamento feito durante essa pesquisa, no mês de
+                    novembro de 2025, mostra que <strong>1.181 dos 4.056 museus registrados oficialmente
+                        (aproximadamente 29,1%) não possuem nenhum recurso ou infraestrutura direcionada para
+                        acessibilidade</strong>.
+
                 </p>
                 <p>
                     Nesse cenário, o projeto <strong>GuiMA (Guia de Museus Acessíveis)</strong> se propõe a ampliar essa
@@ -496,7 +499,7 @@
                     É importante ressaltar que os dados são autodeclarados pelos
                     museus na plataforma e que não foi possível realizar verificação sobre
                     os recursos de acessibilidade informados pelas instituições. A última coleta de dados foi
-                    realizada em outubro de 2025, e as informações podem ter sido atualizadas pelos
+                    realizada em novembro de 2025, e as informações podem ter sido atualizadas pelos
                     museus posteriormente.
                 </p>
                 <h4>Bibliotecas Python utilizadas</h4>
@@ -510,7 +513,8 @@
                     <li><strong>TQDM</strong>: Mostrar barras de progresso nos loops</li>
                     <li><strong>Numpy</strong>: Análise, cálculo numérico e operações com arrays</li>
                     <li><strong>Matplotlib</strong>: Visualização de dados</li>
-                    <li><strong>Geopy</strong>: Uso do Nominatim para obter as coordenadas de localização com base em um endereço</li>
+                    <li><strong>Geopy</strong>: Uso do Nominatim para obter as coordenadas de localização com base em um
+                        endereço</li>
                 </ul>
 
                 <h3>Obtenção dos dados: Base de dados oficial do MuseusBR e raspagem de dados</h3>
@@ -525,11 +529,11 @@
                     complementar as informações fornecidas pela planilha.
                 </p>
                 <p>
-                    A raspagem de dados foi realizada utilizando a linguagem Python no mês de outubro de 2025,
+                    A raspagem de dados foi realizada utilizando a linguagem Python no mês de novembro de 2025,
                     acessando as páginas públicas do <a href="http://museus.cultura.gov.br/">Museusbr</a> de
                     acordo com o link que estava registrado na planilha disponibilizada pela instituição. Foram
                     acessadas
-                    4.047 páginas individuais de museus,
+                    4.056 páginas individuais de museus,
                     obtendo as informações apresentadas em cada uma das páginas, como:
                 </p>
                 <ol>
@@ -560,7 +564,7 @@
                     <li>Reestruturar dados obtidos do site: reclassificar algumas informações como os recursos de
                         acessibilidade para que fosse possível criar uma classificação</li>
                     <li>Complementar informações faltantes: pesquisar e incluir dados
-                        de endereço de 69 museus (1,7% do total) utilizando a biblioteca
+                        de endereço de 97 museus (2,39% do total) utilizando a biblioteca
                         Nominatim e serviços de geocodificação</li>
                     <li>Ajustar e corrigir termos e palavras: normalização de diversos termos como "rampa", "rampas",
                         "Rampa", "Rampas", "RAMPA", "Rampa de acesso" para melhor funcionamento dos filtros e
@@ -743,7 +747,14 @@
             <section class="article-section">
 
                 <h2>Dados utilizados e arquivos produzidos</h2>
-                <p>Todos os arquivos utilizados e produzidos neste projeto podem ser acessados no <a href="https://icaroferracini.github.io/Guia-de-Museus-Acessiveis/05%20-%20Projeto%20em%20HTML/index.html">Github</a> para consulta, verificação e criação de outros projetos.</p>
+                <p>Todos os arquivos utilizados e produzidos neste projeto podem ser acessados no <a
+                        href="https://github.com/icaroferracini/Guia-de-Museus-Acessiveis">Github</a>.
+                </p>
+                <p>Todo o projeto é distribuído com a licença <a
+                        href="https://choosealicense.com/licenses/cc-by-sa-4.0/">Creative Commons Attribution Share
+                        Alike 4.0 International</a>.
+
+                </p>
             </section>
         </article>
 
@@ -751,7 +762,9 @@
     </main>
 
     <footer class="footer">
-        <p class="footer-text">Projeto desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/" class="link-footer">Ícaro Ferracini</a> como trabalho de conclusão de curso para o MBA de Jornalismo de Dados - 2025</p>
+        <p class="footer-text">Projeto desenvolvido por <a href="https://www.linkedin.com/in/icaroferracini/"
+                class="link-footer">Ícaro Ferracini</a> como trabalho de conclusão de curso para o MBA de Jornalismo de
+            Dados - 2025</p>
     </footer>
 
     <script>
@@ -829,7 +842,3 @@
 </body>
 
 </html>
-
-
-
-
