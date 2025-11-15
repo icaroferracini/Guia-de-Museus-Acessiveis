@@ -1670,6 +1670,13 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/leaflet-gesture-handling@1.2.2/dist/leaflet-gesture-handling.min.js"></script>
     <script>
+        function removeAcentos(str) {
+            return str
+                .normalize("NFD")              // separa acentos das letras
+                .replace(/[\u0300-\u036f]/g, "") // remove os acentos
+                .toLowerCase();                // mantém tudo minúsculo para comparar
+        }
+
         // ========== FUNÇÕES DE ACESSIBILIDADE ==========
         function announceToScreenReader(message) {
             const announcement = document.createElement('div');
@@ -1839,7 +1846,7 @@
             showLoading();
 
             try {
-                const response = await fetch('../01 - Dados/DadosMuseus.csv');
+                const response = await fetch('DadosMuseus.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ao carregar CSV: ${response.status}`);
@@ -2016,7 +2023,10 @@
             const search = document.getElementById(`${name}Search`);
 
             const searchValue = search ? search.value.toLowerCase() : '';
-            const filteredOptions = options.filter(opt => opt.toLowerCase().includes(searchValue));
+            const filteredOptions = options.filter(opt =>
+                removeAcentos(opt).includes(removeAcentos(searchValue))
+            );
+
 
             container.innerHTML = '';
             filteredOptions.forEach((option, index) => {
@@ -2190,6 +2200,14 @@
                     return state.selectedRecursos.some(r => museumRecursos.includes(String(r).toLowerCase().trim()));
                 });
             }
+
+            /*if (state.selectedEstados.length > 0) {
+                filtered = filtered.filter(m => state.selectedEstados.some(estado =>
+                    removeAcentos(m.estadoCompleto) === removeAcentos(m.estadoCompleto)
+                )
+                );
+            }
+                */
 
             if (state.selectedEstados.length > 0) {
                 filtered = filtered.filter(m => state.selectedEstados.includes(m.estadoCompleto));
@@ -2811,7 +2829,7 @@
             }
 
             const filtered = state.museums
-                .filter(m => m.titulo.toLowerCase().includes(value.toLowerCase()))
+                .filter(m => removeAcentos(m.titulo).toLowerCase().includes(value.toLowerCase()))
                 .filter(m => !state.selectedMuseums.find(sm => sm.id === m.id))
                 .slice(0, 10);
 
